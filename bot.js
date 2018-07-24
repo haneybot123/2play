@@ -90,11 +90,10 @@ client.on('message', async msg => { // eslint-disable-line
 					let copy = "ζ͜͡Golden.";
 					let index = 0;
 					const embed1 = new Discord.RichEmbed()
-					.setFooter(copy, client.user.avatarURL)
 			        .setDescription(`**اختار رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
-					
+					.setFooter(copy, client.user.avatarURL);
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
