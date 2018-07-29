@@ -242,7 +242,6 @@ client.on('message', message => {
 
  message.author.sendMessage(`
 
-2about - shows info about the bot
 2ping - checks the bot's latency
 
   Music:
@@ -267,18 +266,6 @@ For additional help,
 
     }
 });
-	client.on('message', message => {
-    if (message.content.startsWith("2about")) {
-      message.channel.send({
- embed: new Discord.RichEmbed() 
-    .setColor('RED')
-    .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
-         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
-        .addField('**وقت الاقلاع⌚**', timeCon(process.uptime()), true)
-        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
-     })
-    }
-  });
   client.on('message', message => {
                                 if(!message.channel.guild) return;
                         if (message.content.startsWith('2ping')) {
