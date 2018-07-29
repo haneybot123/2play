@@ -231,11 +231,16 @@ function search_video(query, cb) {
 function isYoutube(str) {
     return str.toLowerCase().indexOf('youtube.com') > -1;
 }
- client.on('message', message => {
-     if (message.content === prefix +"help") {
-    const embed = new Discord.RichEmbed()
-     .setColor("RANDOM")
-     .addField(`Zyad,aLmutairi commands:
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "help-en") {
+		 message.channel.send('**The Message Was Sent On Private**');
+            
+	
+		 
+
+
+ message.author.sendMessage(`
 
 2about - shows info about the bot
 2ping - checks the bot's latency
@@ -256,11 +261,12 @@ function isYoutube(str) {
 2stop - stops the current song and clears the queue
 2vol [0-150] - sets or shows volume
 
-For additional help,  `)
+For additional help, 
 
-      message.channel.send({embed});
-     }
-    });
+`);
+
+    }
+});
 	client.on('message', message => {
     if (message.content.startsWith("2about")) {
       message.channel.send({
